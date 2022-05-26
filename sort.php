@@ -97,7 +97,6 @@ foreach ($array as $key => $row) {
 }
 
 array_multisort($price, SORT_NUMERIC, $array);
-
 ?>
 
 
