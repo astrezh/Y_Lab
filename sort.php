@@ -1,7 +1,6 @@
 <?php
-function debug($txt) {
-    echo '<pre>' . print_r($txt, 1) . '</pre';
-}
+
+
 $array = [
 
     'SKLAD1' => [
@@ -93,21 +92,13 @@ $array = [
 
 ];
 
-debug($array);
-
-function sortArray(&$array) {
-    foreach ($array as &$skl) {
-        foreach ($skl as &$item) {
-            usort($item, function ($a, $b) {
-                return ($a['PRICE'] - $b['PRICE']);
-            });
-        }
-    }
+foreach ($array as $key => $row) {
+    $price[$key] = $row['PRICE'];
 }
 
-sortArray($array);
+array_multisort($price, SORT_NUMERIC, $array);
 
-debug($array);
+?>
 
 
 
